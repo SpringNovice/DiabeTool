@@ -3,7 +3,7 @@
 	xmlns:th="http://www.thymeleaf.org">
 
 <head>
-<title>Spring Security Tutorial</title>
+<title>Login page</title>
 <link rel="stylesheet" type="text/css" th:href="@{/css/login.css}" />
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -15,8 +15,8 @@
 
 <body>
 	<form th:action="@{/registration}" method="get">
-		<button class="btn btn-md btn-warning btn-block" type="Submit">Go
-			To Registration Page</button>
+		<button class="btn btn-md btn-warning btn-block" type="Submit">На
+			страницу регистрации</button>
 	</form>
 
 	<div class="container">
@@ -30,11 +30,11 @@
 				name="password" class="form-control" /> <br />
 
 			<div align="center" th:if="${param.error}">
-				<p style="font-size: 20; color: #FF1C19;">Email or Password
-					invalid, please verify</p>
+				<p style="font-size: 20; color: #FF1C19;">Пожалуйста, проверьте
+					корректность введенной почты или пароля</p>
 			</div>
 			<button class="btn btn-lg btn-primary btn-block" name="Submit"
-				value="Login" type="Submit" th:text="Login"></button>
+				value="Login" type="Submit" th:text="Войти"></button>
 		</form>
 	</div>
 </body>

@@ -41,14 +41,13 @@ public class LoginController {
 		ModelAndView modelAndView = new ModelAndView();
 		User userExists = userService.findUserByEmail(user.getEmail());
 		if (userExists != null) {
-			bindingResult.rejectValue("email", "error.user",
-					"There is already a user registered with the email provided");
+			bindingResult.rejectValue("email", "error.user", "Пользователь с таким адресом уже существует");
 		}
 		if (bindingResult.hasErrors()) {
 			modelAndView.setViewName("registration");
 		} else {
 			userService.saveUser(user);
-			modelAndView.addObject("successMessage", "User has been registered successfully");
+			modelAndView.addObject("successMessage", "Вы были успешно зарегистрированы");
 			modelAndView.addObject("user", new User());
 			modelAndView.setViewName("registration");
 
@@ -62,8 +61,7 @@ public class LoginController {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		User user = userService.findUserByEmail(auth.getName());
 		modelAndView.addObject("userName",
-				"Welcome " + user.getName() + " " + user.getLastName() + " (" + user.getEmail() + ")");
-		modelAndView.addObject("adminMessage", "Content available only for users with admin role");
+				"Добро пожаловать, " + user.getName() + " " + user.getLastName() + " (" + user.getEmail() + ")");
 		modelAndView.setViewName("/home");
 		return modelAndView;
 	}
