@@ -20,7 +20,7 @@ public class LoginController {
 	@Autowired
 	private UserService userService;
 
-	@RequestMapping(value = { "/", "/login" }, method = RequestMethod.GET)
+	@RequestMapping(value = {"/login" }, method = RequestMethod.GET)
 	public ModelAndView login() {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("login");
@@ -62,7 +62,7 @@ public class LoginController {
 		User user = userService.findUserByEmail(auth.getName());
 		modelAndView.addObject("userName",
 				"Добро пожаловать, " + user.getName() + " " + user.getLastName() + " (" + user.getEmail() + ")");
-		modelAndView.setViewName("/home");
+		modelAndView.setViewName("/index");
 		return modelAndView;
 	}
 
